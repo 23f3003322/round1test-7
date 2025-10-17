@@ -5,6 +5,7 @@
   const resultEl = document.getElementById('github-result');
   const createdAtEl = document.getElementById('github-created-at');
   const usernameEl = document.getElementById('github-username');
+  const accountAgeEl = document.getElementById('github-account-age');
   const errorAlert = document.getElementById('error-alert');
   const usernameInput = document.getElementById('username-input');
 
@@ -24,7 +25,13 @@
     }
     const user = await resp.json();
     const date = user.created_at ? user.created_at.substring(0, 10) : '';
-    return { login: user.login, createdDate: date };
+    return { login: user.login, createdDate: date, createdAt: user.created_at };
+  }
+
+  function calculateAge(dateString) {
+    const date = new Date(dateString);
+    const today = new Date();
+    return today.getFullYear() - date.getFullYear();
   }
 
   if (!form) {
@@ -47,6 +54,7 @@
       const data = await fetchUser(username, tokenFromUrl);
       createdAtEl.textContent = `Account Created At: ${data.createdDate} UTC`;
       usernameEl.textContent = `Username: ${data.login ?? username}`;
+      accountAgeEl.textContent = `Account Age: ${calculateAge(data.createdAt)} years`;
       resultEl.style.display = '';
     } catch (err) {
       errorAlert.textContent = `Error: ${err.message}`;

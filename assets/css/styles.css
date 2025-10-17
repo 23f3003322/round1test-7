@@ -3,3 +3,5 @@ html, body { background-color: var(--bg); }
 body { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
 .container { max-width: 720px; }
 .card { border-radius: 0.75rem; }
+
+.github-account-age { font-weight: bold; }

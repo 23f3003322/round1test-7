@@ -43,6 +43,9 @@ A lightweight, production-ready static website ready for deployment on GitHub Pa
 - assets/js/scripts.js: Fetch logic for GitHub Users API, token handling, and UI updates to show the created date in UTC.
 - assets/css/styles.css: Lightweight styling to match modern UI standards.
 
+## Account Age Display
+- Added a new section to display the account age in whole years.
+
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
